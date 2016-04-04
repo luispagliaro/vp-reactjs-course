@@ -1,17 +1,9 @@
 class Ejercicio2 extends React.Component {
     constructor() {
         super();
-
-        this.state = {
-            selectedElement: ''
-        };
     }
 
-    insertContent(ev) {
-        this.setState({
-            selectedElement: ev.target.getAttribute('data-element'),
-        });
-
+    createElement(ev) {
         let selectedElement = ev.target.getAttribute('data-element'),
             parentElement = document.querySelector('.ej2'),
             element = document.createElement(selectedElement),
@@ -30,9 +22,9 @@ class Ejercicio2 extends React.Component {
         return (
             <div>
                 <div className="ej2">
-                    <button data-element="div" onClick={this.insertContent.bind(this)}>DIV</button>
-                    <button data-element="span" onClick={this.insertContent.bind(this)}>SPAN</button>
-                    <button data-element="a" onClick={this.insertContent.bind(this) }>A</button>
+                    <button data-element="div" onClick={this.createElement.bind(this)}>Create a DIV tag</button>
+                    <button data-element="span" onClick={this.createElement.bind(this)}>Create a SPAN tag</button>
+                    <button data-element="a" onClick={this.createElement.bind(this) }>Create a A tag</button>
                     <p className="info"></p>
                 </div>
             </div>

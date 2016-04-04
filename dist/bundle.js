@@ -73,21 +73,12 @@ var Ejercicio2 = function (_React$Component) {
     function Ejercicio2() {
         _classCallCheck(this, Ejercicio2);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
-
-        _this.state = {
-            selectedElement: ''
-        };
-        return _this;
+        return _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
     }
 
     _createClass(Ejercicio2, [{
-        key: 'insertContent',
-        value: function insertContent(ev) {
-            this.setState({
-                selectedElement: ev.target.getAttribute('data-element')
-            });
-
+        key: 'createElement',
+        value: function createElement(ev) {
             var selectedElement = ev.target.getAttribute('data-element'),
                 parentElement = document.querySelector('.ej2'),
                 element = document.createElement(selectedElement),
@@ -112,18 +103,18 @@ var Ejercicio2 = function (_React$Component) {
                     { className: 'ej2' },
                     React.createElement(
                         'button',
-                        { 'data-element': 'div', onClick: this.insertContent.bind(this) },
-                        'DIV'
+                        { 'data-element': 'div', onClick: this.createElement.bind(this) },
+                        'Create a DIV tag'
                     ),
                     React.createElement(
                         'button',
-                        { 'data-element': 'span', onClick: this.insertContent.bind(this) },
-                        'SPAN'
+                        { 'data-element': 'span', onClick: this.createElement.bind(this) },
+                        'Create a SPAN tag'
                     ),
                     React.createElement(
                         'button',
-                        { 'data-element': 'a', onClick: this.insertContent.bind(this) },
-                        'A'
+                        { 'data-element': 'a', onClick: this.createElement.bind(this) },
+                        'Create a A tag'
                     ),
                     React.createElement('p', { className: 'info' })
                 )
@@ -139,7 +130,7 @@ var Ejercicio2 = function (_React$Component) {
 ReactDOM.render(React.createElement(Ejercicio2, null), document.getElementById('ejercicio2'));
 
 },{}],3:[function(require,module,exports){
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -158,18 +149,55 @@ var Ejercicio3 = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio3).call(this));
 
         _this.state = {
-            selectedElement: ''
+            counter: 0
         };
         return _this;
     }
 
     _createClass(Ejercicio3, [{
-        key: 'render',
+        key: "setCounter",
+        value: function setCounter(value) {
+            this.setState({
+                counter: value
+            });
+        }
+    }, {
+        key: "increaseValue",
+        value: function increaseValue() {
+            this.setCounter(this.state.counter + 1);
+        }
+    }, {
+        key: "setinitialValue",
+        value: function setinitialValue() {
+            var value = prompt('Set counter initial value', 0);
+
+            this.setCounter(value === null ? 0 : value);
+        }
+    }, {
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
+                "div",
                 null,
-                React.createElement('div', { className: 'ej3' })
+                React.createElement(
+                    "div",
+                    { className: "ej3" },
+                    React.createElement(
+                        "span",
+                        { className: "counter" },
+                        this.state.counter
+                    ),
+                    React.createElement(
+                        "button",
+                        { href: "#", onClick: this.increaseValue.bind(this) },
+                        " + "
+                    ),
+                    React.createElement(
+                        "a",
+                        { href: "#", onClick: this.setinitialValue.bind(this) },
+                        "Change initial value"
+                    )
+                )
             );
         }
     }]);
@@ -182,7 +210,7 @@ var Ejercicio3 = function (_React$Component) {
 ReactDOM.render(React.createElement(Ejercicio3, null), document.getElementById('ejercicio3'));
 
 },{}],4:[function(require,module,exports){
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -200,19 +228,17 @@ var Ejercicio4 = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio4).call(this));
 
-        _this.state = {
-            selectedElement: ''
-        };
+        _this.state = {};
         return _this;
     }
 
     _createClass(Ejercicio4, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
+                "div",
                 null,
-                React.createElement('div', { className: 'ej4' })
+                React.createElement("div", { className: "ej4" })
             );
         }
     }]);

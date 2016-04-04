@@ -28,3 +28,18 @@ body {
     margin: 25px auto 0;
     border: 1px solid forestgreen;
 }
+
+.counter {
+    padding: 5px;
+    border: 1px solid grey;
+}
+
+.ej3 button {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.ej3 a {
+    display: block;
+    margin-top: 10px;
+}

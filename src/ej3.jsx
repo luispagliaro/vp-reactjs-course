@@ -3,14 +3,33 @@ class Ejercicio3 extends React.Component {
         super();
 
         this.state = {
-            selectedElement: ''
+            counter: 0
         };
+    }
+
+    setCounter(value) {
+        this.setState({
+            counter: value
+        });
+    }
+
+    increaseValue() {
+        this.setCounter(this.state.counter + 1);
+    }
+
+    setinitialValue() {
+        let value = prompt('Set counter initial value', 0);
+
+        this.setCounter(value === null ? 0 : value);
     }
 
     render() {
         return (
             <div>
                 <div className="ej3">
+                    <span className="counter">{this.state.counter}</span>
+                    <button href="#" onClick={this.increaseValue.bind(this)}> + </button>
+                    <a href="#" onClick={this.setinitialValue.bind(this)}>Change initial value</a>
                 </div>
             </div>
         );

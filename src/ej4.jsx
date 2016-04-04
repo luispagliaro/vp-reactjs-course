@@ -3,7 +3,6 @@ class Ejercicio4 extends React.Component {
         super();
 
         this.state = {
-            selectedElement: ''
         };
     }
 
