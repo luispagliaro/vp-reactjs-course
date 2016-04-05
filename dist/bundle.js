@@ -82,8 +82,8 @@ var Ejercicio2 = function (_React$Component) {
 
     _createClass(Ejercicio2, [{
         key: 'createElement',
-        value: function createElement(ev) {
-            var selectedElement = ev.target.getAttribute('data-element'),
+        value: function createElement(e) {
+            var selectedElement = e.target.getAttribute('data-element'),
                 parentElement = document.querySelector('.ej2'),
                 element = document.createElement(selectedElement),
                 infoText = document.querySelector('.info');
@@ -134,7 +134,7 @@ var Ejercicio2 = function (_React$Component) {
 ReactDOM.render(React.createElement(Ejercicio2, null), document.getElementById('ejercicio2'));
 
 },{}],3:[function(require,module,exports){
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -161,47 +161,47 @@ var Ejercicio3 = function (_React$Component) {
     }
 
     _createClass(Ejercicio3, [{
-        key: "setCounter",
+        key: 'setCounter',
         value: function setCounter(value) {
             this.setState({
                 counter: value
             });
         }
     }, {
-        key: "increaseValue",
+        key: 'increaseValue',
         value: function increaseValue() {
             this.setCounter(this.state.counter + 1);
         }
     }, {
-        key: "setinitialValue",
+        key: 'setinitialValue',
         value: function setinitialValue() {
             var value = prompt('Set counter initial value', 0);
 
-            this.setCounter(value === null ? 0 : value);
+            this.setCounter(value === null || value !== 'number' ? 0 : value);
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
+                'div',
                 null,
                 React.createElement(
-                    "div",
-                    { className: "ej3" },
+                    'div',
+                    { className: 'ej3' },
                     React.createElement(
-                        "span",
-                        { className: "counter" },
+                        'span',
+                        { className: 'counter' },
                         this.state.counter
                     ),
                     React.createElement(
-                        "button",
-                        { href: "#", onClick: this.increaseValue },
-                        " + "
+                        'button',
+                        { href: '#', onClick: this.increaseValue },
+                        ' + '
                     ),
                     React.createElement(
-                        "a",
-                        { href: "#", onClick: this.setinitialValue },
-                        "Change initial value"
+                        'a',
+                        { href: '#', onClick: this.setinitialValue },
+                        'Change initial value'
                     )
                 )
             );

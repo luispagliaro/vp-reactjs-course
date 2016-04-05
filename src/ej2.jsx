@@ -5,8 +5,8 @@ class Ejercicio2 extends React.Component {
         this.createElemen = this.createElement.bind(this);
     }
 
-    createElement(ev) {
-        let selectedElement = ev.target.getAttribute('data-element'),
+    createElement(e) {
+        let selectedElement = e.target.getAttribute('data-element'),
             parentElement = document.querySelector('.ej2'),
             element = document.createElement(selectedElement),
             infoText = document.querySelector('.info');
