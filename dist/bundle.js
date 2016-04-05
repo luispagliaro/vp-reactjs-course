@@ -68,24 +68,56 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Ejercicio2 = function (_React$Component) {
-  _inherits(Ejercicio2, _React$Component);
+var Button = function (_React$Component) {
+  _inherits(Button, _React$Component);
+
+  function Button() {
+    _classCallCheck(this, Button);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Button).call(this));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(Button, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      this.props.handleClick(this.props.tag);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'button',
+        { onClick: this.handleClick },
+        'Create a <',
+        this.props.tag,
+        '> tag'
+      );
+    }
+  }]);
+
+  return Button;
+}(React.Component);
+
+var Ejercicio2 = function (_React$Component2) {
+  _inherits(Ejercicio2, _React$Component2);
 
   function Ejercicio2() {
     _classCallCheck(this, Ejercicio2);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
+    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
 
-    _this.createElemen = _this.createElement.bind(_this);
-    return _this;
+    _this2.createElement = _this2.createElement.bind(_this2);
+    return _this2;
   }
 
   _createClass(Ejercicio2, [{
     key: 'createElement',
-    value: function createElement(e) {
-      var selectedElement = e.target.getAttribute('data-element'),
-          parentElement = document.querySelector('.ej2'),
-          element = document.createElement(selectedElement),
+    value: function createElement(tag) {
+      var parentElement = document.querySelector('.ej2'),
+          element = document.createElement(tag),
           infoText = document.querySelector('.info');
 
       if (parentElement.childNodes.length > 4) {
@@ -94,7 +126,7 @@ var Ejercicio2 = function (_React$Component) {
 
       element.innerText = 'Hello, World!';
       parentElement.appendChild(element);
-      infoText.innerText = selectedElement + ' tag created';
+      infoText.innerText = '<' + tag + '> tag created';
     }
   }, {
     key: 'render',
@@ -105,21 +137,9 @@ var Ejercicio2 = function (_React$Component) {
         React.createElement(
           'div',
           { className: 'ej2' },
-          React.createElement(
-            'button',
-            { 'data-element': 'div', onClick: this.createElement },
-            'Create a DIV tag'
-          ),
-          React.createElement(
-            'button',
-            { 'data-element': 'span', onClick: this.createElement },
-            'Create a SPAN tag'
-          ),
-          React.createElement(
-            'button',
-            { 'data-element': 'a', onClick: this.createElement },
-            'Create a A tag'
-          ),
+          React.createElement(Button, { tag: 'div', handleClick: this.createElement }),
+          React.createElement(Button, { tag: 'span', handleClick: this.createElement }),
+          React.createElement(Button, { tag: 'a', handleClick: this.createElement }),
           React.createElement('p', { className: 'info' })
         )
       );

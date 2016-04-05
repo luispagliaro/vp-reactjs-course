@@ -22,7 +22,7 @@ body {
 
 .ej2 div,
 .ej2 a,
-.ej2 span {
+.ej2 > span {
   display: block;
   width: 200px;
   margin: 25px auto 0;

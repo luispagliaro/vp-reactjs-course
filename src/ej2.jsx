@@ -1,14 +1,31 @@
+class Button extends React.Component {
+  constructor() {
+    super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.handleClick(this.props.tag);
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>Create a &lt;{this.props.tag}&gt; tag</button>
+    );
+  }
+}
+
 class Ejercicio2 extends React.Component {
   constructor() {
     super();
 
-    this.createElemen = this.createElement.bind(this);
+    this.createElement = this.createElement.bind(this);
   }
 
-  createElement(e) {
-    let selectedElement = e.target.getAttribute('data-element'),
-      parentElement = document.querySelector('.ej2'),
-      element = document.createElement(selectedElement),
+  createElement(tag) {
+    let parentElement = document.querySelector('.ej2'),
+      element = document.createElement(tag),
       infoText = document.querySelector('.info');
 
     if (parentElement.childNodes.length > 4) {
@@ -17,16 +34,16 @@ class Ejercicio2 extends React.Component {
 
     element.innerText = 'Hello, World!';
     parentElement.appendChild(element);
-    infoText.innerText = `${selectedElement} tag created`;
+    infoText.innerText = `<${tag}> tag created`;
   }
 
   render() {
     return (
       <div>
         <div className="ej2">
-          <button data-element="div" onClick={this.createElement}>Create a DIV tag</button>
-          <button data-element="span" onClick={this.createElement}>Create a SPAN tag</button>
-          <button data-element="a" onClick={this.createElement}>Create a A tag</button>
+          <Button tag={'div'} handleClick={this.createElement}/>
+          <Button tag={'span'} handleClick={this.createElement}/>
+          <Button tag={'a'} handleClick={this.createElement}/>
           <p className="info"></p>
         </div>
       </div>
