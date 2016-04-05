@@ -10,47 +10,47 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Ejercicio1 = function (_React$Component) {
-    _inherits(Ejercicio1, _React$Component);
+  _inherits(Ejercicio1, _React$Component);
 
-    function Ejercicio1() {
-        _classCallCheck(this, Ejercicio1);
+  function Ejercicio1() {
+    _classCallCheck(this, Ejercicio1);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio1).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio1).call(this));
 
-        _this.state = {
-            isVisible: true
-        };
-        _this.hideContainer = _this.hideContainer.bind(_this);
-        return _this;
+    _this.state = {
+      isVisible: true
+    };
+    _this.hideContainer = _this.hideContainer.bind(_this);
+    return _this;
+  }
+
+  _createClass(Ejercicio1, [{
+    key: 'hideContainer',
+    value: function hideContainer() {
+      this.setState({
+        isVisible: false
+      });
     }
+  }, {
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'div',
+          { className: this.state.isVisible ? 'ej1' : 'ej1 hide' },
+          React.createElement(
+            'a',
+            { href: '#', onClick: this.hideContainer },
+            'Click this to hide the box'
+          )
+        )
+      );
+    }
+  }]);
 
-    _createClass(Ejercicio1, [{
-        key: 'hideContainer',
-        value: function hideContainer() {
-            this.setState({
-                isVisible: false
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return React.createElement(
-                'div',
-                null,
-                React.createElement(
-                    'div',
-                    { className: this.state.isVisible ? 'ej1' : 'ej1 hide' },
-                    React.createElement(
-                        'a',
-                        { href: '#', onClick: this.hideContainer },
-                        'Click this to hide the box'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Ejercicio1;
+  return Ejercicio1;
 }(React.Component);
 
 ;
@@ -69,64 +69,64 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Ejercicio2 = function (_React$Component) {
-    _inherits(Ejercicio2, _React$Component);
+  _inherits(Ejercicio2, _React$Component);
 
-    function Ejercicio2() {
-        _classCallCheck(this, Ejercicio2);
+  function Ejercicio2() {
+    _classCallCheck(this, Ejercicio2);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
 
-        _this.createElemen = _this.createElement.bind(_this);
-        return _this;
+    _this.createElemen = _this.createElement.bind(_this);
+    return _this;
+  }
+
+  _createClass(Ejercicio2, [{
+    key: 'createElement',
+    value: function createElement(e) {
+      var selectedElement = e.target.getAttribute('data-element'),
+          parentElement = document.querySelector('.ej2'),
+          element = document.createElement(selectedElement),
+          infoText = document.querySelector('.info');
+
+      if (parentElement.childNodes.length > 4) {
+        parentElement.removeChild(parentElement.childNodes[4]);
+      }
+
+      element.innerText = 'Hello, World!';
+      parentElement.appendChild(element);
+      infoText.innerText = selectedElement + ' tag created';
     }
+  }, {
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'div',
+          { className: 'ej2' },
+          React.createElement(
+            'button',
+            { 'data-element': 'div', onClick: this.createElement },
+            'Create a DIV tag'
+          ),
+          React.createElement(
+            'button',
+            { 'data-element': 'span', onClick: this.createElement },
+            'Create a SPAN tag'
+          ),
+          React.createElement(
+            'button',
+            { 'data-element': 'a', onClick: this.createElement },
+            'Create a A tag'
+          ),
+          React.createElement('p', { className: 'info' })
+        )
+      );
+    }
+  }]);
 
-    _createClass(Ejercicio2, [{
-        key: 'createElement',
-        value: function createElement(e) {
-            var selectedElement = e.target.getAttribute('data-element'),
-                parentElement = document.querySelector('.ej2'),
-                element = document.createElement(selectedElement),
-                infoText = document.querySelector('.info');
-
-            if (parentElement.childNodes.length > 4) {
-                parentElement.removeChild(parentElement.childNodes[4]);
-            }
-
-            element.innerText = 'Hello, World!';
-            parentElement.appendChild(element);
-            infoText.innerText = selectedElement + ' tag created';
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return React.createElement(
-                'div',
-                null,
-                React.createElement(
-                    'div',
-                    { className: 'ej2' },
-                    React.createElement(
-                        'button',
-                        { 'data-element': 'div', onClick: this.createElement },
-                        'Create a DIV tag'
-                    ),
-                    React.createElement(
-                        'button',
-                        { 'data-element': 'span', onClick: this.createElement },
-                        'Create a SPAN tag'
-                    ),
-                    React.createElement(
-                        'button',
-                        { 'data-element': 'a', onClick: this.createElement },
-                        'Create a A tag'
-                    ),
-                    React.createElement('p', { className: 'info' })
-                )
-            );
-        }
-    }]);
-
-    return Ejercicio2;
+  return Ejercicio2;
 }(React.Component);
 
 ;
@@ -145,70 +145,70 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Ejercicio3 = function (_React$Component) {
-    _inherits(Ejercicio3, _React$Component);
+  _inherits(Ejercicio3, _React$Component);
 
-    function Ejercicio3() {
-        _classCallCheck(this, Ejercicio3);
+  function Ejercicio3() {
+    _classCallCheck(this, Ejercicio3);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio3).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio3).call(this));
 
-        _this.state = {
-            counter: 0
-        };
-        _this.increaseValue = _this.increaseValue.bind(_this);
-        _this.setinitialValue = _this.setinitialValue.bind(_this);
-        return _this;
+    _this.state = {
+      counter: 0
+    };
+    _this.increaseValue = _this.increaseValue.bind(_this);
+    _this.setinitialValue = _this.setinitialValue.bind(_this);
+    return _this;
+  }
+
+  _createClass(Ejercicio3, [{
+    key: 'setCounter',
+    value: function setCounter(value) {
+      this.setState({
+        counter: value
+      });
     }
+  }, {
+    key: 'increaseValue',
+    value: function increaseValue() {
+      this.setCounter(this.state.counter + 1);
+    }
+  }, {
+    key: 'setinitialValue',
+    value: function setinitialValue() {
+      var value = prompt('Set counter initial value');
 
-    _createClass(Ejercicio3, [{
-        key: 'setCounter',
-        value: function setCounter(value) {
-            this.setState({
-                counter: value
-            });
-        }
-    }, {
-        key: 'increaseValue',
-        value: function increaseValue() {
-            this.setCounter(this.state.counter + 1);
-        }
-    }, {
-        key: 'setinitialValue',
-        value: function setinitialValue() {
-            var value = prompt('Set counter initial value');
+      this.setCounter(value !== 'number' && value > 0 ? this.state.counter : value);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'div',
+          { className: 'ej3' },
+          React.createElement(
+            'span',
+            { className: 'counter' },
+            this.state.counter
+          ),
+          React.createElement(
+            'button',
+            { href: '#', onClick: this.increaseValue },
+            ' + '
+          ),
+          React.createElement(
+            'a',
+            { href: '#', onClick: this.setinitialValue },
+            'Change initial value'
+          )
+        )
+      );
+    }
+  }]);
 
-            this.setCounter(value !== 'number' && value > 0 ? this.state.counter : value);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return React.createElement(
-                'div',
-                null,
-                React.createElement(
-                    'div',
-                    { className: 'ej3' },
-                    React.createElement(
-                        'span',
-                        { className: 'counter' },
-                        this.state.counter
-                    ),
-                    React.createElement(
-                        'button',
-                        { href: '#', onClick: this.increaseValue },
-                        ' + '
-                    ),
-                    React.createElement(
-                        'a',
-                        { href: '#', onClick: this.setinitialValue },
-                        'Change initial value'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Ejercicio3;
+  return Ejercicio3;
 }(React.Component);
 
 ;
@@ -227,29 +227,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Ejercicio4 = function (_React$Component) {
-    _inherits(Ejercicio4, _React$Component);
+  _inherits(Ejercicio4, _React$Component);
 
-    function Ejercicio4() {
-        _classCallCheck(this, Ejercicio4);
+  function Ejercicio4() {
+    _classCallCheck(this, Ejercicio4);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio4).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio4).call(this));
 
-        _this.state = {};
-        return _this;
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Ejercicio4, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        React.createElement("div", { className: "ej4" })
+      );
     }
+  }]);
 
-    _createClass(Ejercicio4, [{
-        key: "render",
-        value: function render() {
-            return React.createElement(
-                "div",
-                null,
-                React.createElement("div", { className: "ej4" })
-            );
-        }
-    }]);
-
-    return Ejercicio4;
+  return Ejercicio4;
 }(React.Component);
 
 ;

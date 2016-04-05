@@ -1,21 +1,21 @@
 class Ejercicio4 extends React.Component {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.state = {
-        };
-    }
+    this.state = {
+    };
+  }
 
-    render() {
-        return (
-            <div>
-                <div className="ej4">
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <div className="ej4">
+        </div>
+      </div>
+    );
+  }
 };
 
 ReactDOM.render(<Ejercicio4/>,
-    document.getElementById('ejercicio4')
+  document.getElementById('ejercicio4')
 );
