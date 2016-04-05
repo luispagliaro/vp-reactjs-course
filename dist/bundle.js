@@ -175,9 +175,9 @@ var Ejercicio3 = function (_React$Component) {
     }, {
         key: 'setinitialValue',
         value: function setinitialValue() {
-            var value = prompt('Set counter initial value', 0);
+            var value = prompt('Set counter initial value');
 
-            this.setCounter(value === null || value !== 'number' ? 0 : value);
+            this.setCounter(value !== 'number' && value > 0 ? this.state.counter : value);
         }
     }, {
         key: 'render',
