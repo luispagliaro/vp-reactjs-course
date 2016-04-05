@@ -22,7 +22,7 @@ class Ejercicio3 extends React.Component {
   setinitialValue() {
     let value = prompt('Set counter initial value');
 
-    this.setCounter(value !== 'number' && value > 0 ? this.state.counter : value);
+    this.setCounter(isNaN(value) || value <= 0 ? this.state.counter : +value);
   }
 
   render() {

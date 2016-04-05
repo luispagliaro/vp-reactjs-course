@@ -17,7 +17,7 @@ class Ejercicio2 extends React.Component {
 
     element.innerText = 'Hello, World!';
     parentElement.appendChild(element);
-    infoText.innerText = selectedElement + ' tag created';
+    infoText.innerText = `${selectedElement} tag created`;
   }
 
   render() {
