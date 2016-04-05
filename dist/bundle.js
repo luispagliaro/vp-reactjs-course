@@ -58,7 +58,7 @@ var Ejercicio1 = function (_React$Component) {
 ReactDOM.render(React.createElement(Ejercicio1, null), document.getElementById('ejercicio1'));
 
 },{}],2:[function(require,module,exports){
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -81,19 +81,19 @@ var Button = function (_React$Component) {
   }
 
   _createClass(Button, [{
-    key: 'handleClick',
+    key: "handleClick",
     value: function handleClick() {
       this.props.handleClick(this.props.tag);
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       return React.createElement(
-        'button',
+        "button",
         { onClick: this.handleClick },
-        'Create a <',
+        "Create a <",
         this.props.tag,
-        '> tag'
+        "> tag"
       );
     }
   }]);
@@ -101,46 +101,82 @@ var Button = function (_React$Component) {
   return Button;
 }(React.Component);
 
-var Ejercicio2 = function (_React$Component2) {
-  _inherits(Ejercicio2, _React$Component2);
+var Tag = function (_React$Component2) {
+  _inherits(Tag, _React$Component2);
+
+  function Tag() {
+    _classCallCheck(this, Tag);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Tag).call(this));
+  }
+
+  _createClass(Tag, [{
+    key: "render",
+    value: function render() {
+      var tag = this.props.tag,
+          el = React.createElement(tag, { className: "tag" }, 'Hello, World!');
+      return React.createElement(
+        "div",
+        null,
+        el,
+        React.createElement(
+          "p",
+          { className: "info" },
+          "<",
+          tag,
+          "> tag created"
+        )
+      );
+    }
+  }]);
+
+  return Tag;
+}(React.Component);
+
+var Ejercicio2 = function (_React$Component3) {
+  _inherits(Ejercicio2, _React$Component3);
 
   function Ejercicio2() {
     _classCallCheck(this, Ejercicio2);
 
-    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
+    var _this3 = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
 
-    _this2.createElement = _this2.createElement.bind(_this2);
-    return _this2;
+    _this3.createElement = _this3.createElement.bind(_this3);
+
+    _this3.state = {
+      createTag: ''
+    };
+    return _this3;
   }
 
   _createClass(Ejercicio2, [{
-    key: 'createElement',
+    key: "createElement",
     value: function createElement(tag) {
-      var parentElement = document.querySelector('.ej2'),
-          element = document.createElement(tag),
-          infoText = document.querySelector('.info');
-
-      if (parentElement.childNodes.length > 4) {
-        parentElement.removeChild(parentElement.childNodes[4]);
-      }
-
-      element.innerText = 'Hello, World!';
-      parentElement.appendChild(element);
-      infoText.innerText = '<' + tag + '> tag created';
+      this.setState({
+        createTag: tag
+      });
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
+      var el = void 0;
+
+      if (this.state.createTag === '') {
+        el = "Click a button to create a tag";
+      } else {
+        el = React.createElement(Tag, { tag: this.state.createTag });
+      }
+
       return React.createElement(
-        'div',
+        "div",
         null,
         React.createElement(
-          'div',
-          { className: 'ej2' },
+          "div",
+          { className: "ej2" },
           React.createElement(Button, { tag: 'div', handleClick: this.createElement }),
           React.createElement(Button, { tag: 'span', handleClick: this.createElement }),
           React.createElement(Button, { tag: 'a', handleClick: this.createElement }),
-          React.createElement('p', { className: 'info' })
+          el
         )
       );
     }

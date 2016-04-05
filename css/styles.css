@@ -20,13 +20,17 @@ body {
   margin: 0 10px;
 }
 
-.ej2 div,
 .ej2 a,
-.ej2 > span {
+.ej2 .tag {
   display: block;
   width: 200px;
   margin: 25px auto 0;
   border: 1px solid forestgreen;
+}
+
+.ej2 > span {
+    display: block;
+    margin-top: 16px;
 }
 
 .counter {
