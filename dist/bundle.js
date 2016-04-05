@@ -162,7 +162,7 @@ var Ejercicio2 = function (_React$Component3) {
       var el = void 0;
 
       if (this.state.createTag === '') {
-        el = "Click a button to create a tag";
+        el = 'Click a button to create a tag';
       } else {
         el = React.createElement(Tag, { tag: this.state.createTag });
       }

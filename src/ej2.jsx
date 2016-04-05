@@ -54,7 +54,7 @@ class Ejercicio2 extends React.Component {
     let el;
 
     if (this.state.createTag === '') {
-      el = `Click a button to create a tag`;
+      el = 'Click a button to create a tag';
     } else {
       el = <Tag tag={this.state.createTag}/>;
     }
