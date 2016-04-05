@@ -1,6 +1,8 @@
 class Ejercicio2 extends React.Component {
     constructor() {
         super();
+
+        this.createElemen = this.createElement.bind(this);
     }
 
     createElement(ev) {
@@ -22,9 +24,9 @@ class Ejercicio2 extends React.Component {
         return (
             <div>
                 <div className="ej2">
-                    <button data-element="div" onClick={this.createElement.bind(this)}>Create a DIV tag</button>
-                    <button data-element="span" onClick={this.createElement.bind(this)}>Create a SPAN tag</button>
-                    <button data-element="a" onClick={this.createElement.bind(this) }>Create a A tag</button>
+                    <button data-element="div" onClick={this.createElement}>Create a DIV tag</button>
+                    <button data-element="span" onClick={this.createElement}>Create a SPAN tag</button>
+                    <button data-element="a" onClick={this.createElement}>Create a A tag</button>
                     <p className="info"></p>
                 </div>
             </div>

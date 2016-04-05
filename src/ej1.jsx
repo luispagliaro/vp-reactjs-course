@@ -5,9 +5,10 @@ class Ejercicio1 extends React.Component {
         this.state = {
             isVisible: true
         };
+        this.hideContainer = this.hideContainer.bind(this);
     }
 
-    hideContainer(ev) {
+    hideContainer() {
         this.setState({
             isVisible: false
         });
@@ -17,7 +18,7 @@ class Ejercicio1 extends React.Component {
         return (
             <div>
                 <div className={this.state.isVisible ? 'ej1' : 'ej1 hide'}>
-                    <a href="#" onClick={this.hideContainer.bind(this)}>Click this to hide the box</a>
+                    <a href="#" onClick={this.hideContainer}>Click this to hide the box</a>
                 </div>
             </div>
         );

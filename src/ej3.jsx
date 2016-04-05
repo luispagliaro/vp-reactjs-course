@@ -5,6 +5,8 @@ class Ejercicio3 extends React.Component {
         this.state = {
             counter: 0
         };
+        this.increaseValue = this.increaseValue.bind(this);
+        this.setinitialValue = this.setinitialValue.bind(this)
     }
 
     setCounter(value) {
@@ -28,8 +30,8 @@ class Ejercicio3 extends React.Component {
             <div>
                 <div className="ej3">
                     <span className="counter">{this.state.counter}</span>
-                    <button href="#" onClick={this.increaseValue.bind(this)}> + </button>
-                    <a href="#" onClick={this.setinitialValue.bind(this)}>Change initial value</a>
+                    <button href="#" onClick={this.increaseValue}> + </button>
+                    <a href="#" onClick={this.setinitialValue}>Change initial value</a>
                 </div>
             </div>
         );

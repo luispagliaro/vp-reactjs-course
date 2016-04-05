@@ -20,12 +20,13 @@ var Ejercicio1 = function (_React$Component) {
         _this.state = {
             isVisible: true
         };
+        _this.hideContainer = _this.hideContainer.bind(_this);
         return _this;
     }
 
     _createClass(Ejercicio1, [{
         key: 'hideContainer',
-        value: function hideContainer(ev) {
+        value: function hideContainer() {
             this.setState({
                 isVisible: false
             });
@@ -41,7 +42,7 @@ var Ejercicio1 = function (_React$Component) {
                     { className: this.state.isVisible ? 'ej1' : 'ej1 hide' },
                     React.createElement(
                         'a',
-                        { href: '#', onClick: this.hideContainer.bind(this) },
+                        { href: '#', onClick: this.hideContainer },
                         'Click this to hide the box'
                     )
                 )
@@ -73,7 +74,10 @@ var Ejercicio2 = function (_React$Component) {
     function Ejercicio2() {
         _classCallCheck(this, Ejercicio2);
 
-        return _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
+        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Ejercicio2).call(this));
+
+        _this.createElemen = _this.createElement.bind(_this);
+        return _this;
     }
 
     _createClass(Ejercicio2, [{
@@ -103,17 +107,17 @@ var Ejercicio2 = function (_React$Component) {
                     { className: 'ej2' },
                     React.createElement(
                         'button',
-                        { 'data-element': 'div', onClick: this.createElement.bind(this) },
+                        { 'data-element': 'div', onClick: this.createElement },
                         'Create a DIV tag'
                     ),
                     React.createElement(
                         'button',
-                        { 'data-element': 'span', onClick: this.createElement.bind(this) },
+                        { 'data-element': 'span', onClick: this.createElement },
                         'Create a SPAN tag'
                     ),
                     React.createElement(
                         'button',
-                        { 'data-element': 'a', onClick: this.createElement.bind(this) },
+                        { 'data-element': 'a', onClick: this.createElement },
                         'Create a A tag'
                     ),
                     React.createElement('p', { className: 'info' })
@@ -151,6 +155,8 @@ var Ejercicio3 = function (_React$Component) {
         _this.state = {
             counter: 0
         };
+        _this.increaseValue = _this.increaseValue.bind(_this);
+        _this.setinitialValue = _this.setinitialValue.bind(_this);
         return _this;
     }
 
@@ -189,12 +195,12 @@ var Ejercicio3 = function (_React$Component) {
                     ),
                     React.createElement(
                         "button",
-                        { href: "#", onClick: this.increaseValue.bind(this) },
+                        { href: "#", onClick: this.increaseValue },
                         " + "
                     ),
                     React.createElement(
                         "a",
-                        { href: "#", onClick: this.setinitialValue.bind(this) },
+                        { href: "#", onClick: this.setinitialValue },
                         "Change initial value"
                     )
                 )
