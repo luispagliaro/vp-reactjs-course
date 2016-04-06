@@ -566,18 +566,26 @@ var FilterInput = function (_React$Component) {
   function FilterInput() {
     _classCallCheck(this, FilterInput);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(FilterInput).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FilterInput).call(this));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
   _createClass(FilterInput, [{
+    key: "handleClick",
+    value: function handleClick() {
+      this.props.onUserInput(this.refs['filterTextInput'].value);
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement(
         "div",
         null,
         React.createElement("label", { htmlFor: "filterInput" }),
-        React.createElement("input", { id: "filterInput", type: "text" }),
-        React.createElement("input", { type: "submit", value: "Filtrar", placeholder: "Filtrar por Apellido" })
+        React.createElement("input", { id: "filterInput", type: "text", ref: "filterTextInput" }),
+        React.createElement("input", { type: "submit", value: "Filtrar", placeholder: "Filtrar por Apellido", onClick: this.handleClick })
       );
     }
   }]);
@@ -605,27 +613,27 @@ var StudentRow = function (_React$Component2) {
         React.createElement(
           "td",
           null,
-          "student.lastName"
+          student.lastName
         ),
         React.createElement(
           "td",
           null,
-          "student.name"
+          student.name
         ),
         React.createElement(
           "td",
           null,
-          "student.exams[0]"
+          student.exams[0]
         ),
         React.createElement(
           "td",
           null,
-          "student.exams[1]"
+          student.exams[1]
         ),
         React.createElement(
           "td",
           null,
-          "student.exams[2]"
+          student.exams[2]
         )
       );
     }
@@ -648,7 +656,8 @@ var Table = function (_React$Component3) {
     value: function render() {
       var _this4 = this;
 
-      var rows = [];
+      var rows = [],
+          students = this.props.students;
 
       students.map(function (student) {
         if (student.lastName.startsWith(_this4.props.filterText)) {
@@ -715,10 +724,19 @@ var StudentTableFilter = function (_React$Component4) {
     _this5.state = {
       filterText: ''
     };
+
+    _this5.handleUserInput = _this5.handleUserInput.bind(_this5);
     return _this5;
   }
 
   _createClass(StudentTableFilter, [{
+    key: "handleUserInput",
+    value: function handleUserInput(filterText) {
+      this.setState({
+        filterText: filterText
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var students = [{ lastName: 'Lopez', name: 'José', exams: [6.5, 7, 6.5] }, { lastName: 'Acosta', name: 'Hernán', exams: [5, 8, 8] }, { lastName: 'Masei', name: 'Ernesto', exams: [6.5, 9, 7.5] }, { lastName: 'Lisso', name: 'Magali', exams: [8, 7, 6.5] }];
@@ -727,7 +745,7 @@ var StudentTableFilter = function (_React$Component4) {
         "div",
         null,
         React.createElement(FilterInput, null),
-        React.createElement(Table, { students: students, filterText: this.state.filterText })
+        React.createElement(Table, { students: students, onUserInput: this.handleUserInput, filterText: this.state.filterText })
       );
     }
   }]);

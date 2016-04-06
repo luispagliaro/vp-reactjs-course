@@ -1,14 +1,22 @@
 class FilterInput extends React.Component {
   constructor() {
     super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.onUserInput(
+      this.refs['filterTextInput'].value
+    );
   }
 
   render() {
     return (
       <div>
         <label htmlFor="filterInput"></label>
-        <input id="filterInput" type="text"/>
-        <input type="submit" value="Filtrar" placeholder="Filtrar por Apellido"/>
+        <input id="filterInput" type="text" ref="filterTextInput"/>
+        <input type="submit" value="Filtrar" placeholder="Filtrar por Apellido" onClick={this.handleClick}/>
       </div>
     );
   }
@@ -24,11 +32,11 @@ class StudentRow extends React.Component {
 
     return (
       <tr>
-        <td>student.lastName</td>
-        <td>student.name</td>
-        <td>student.exams[0]</td>
-        <td>student.exams[1]</td>
-        <td>student.exams[2]</td>
+        <td>{student.lastName}</td>
+        <td>{student.name}</td>
+        <td>{student.exams[0]}</td>
+        <td>{student.exams[1]}</td>
+        <td>{student.exams[2]}</td>
       </tr>
     );
   }
@@ -40,7 +48,8 @@ class Table extends React.Component {
   }
 
   render() {
-    let rows = [];
+    let rows = [],
+      students = this.props.students;
 
     students.map((student) => {
       if (student.lastName.startsWith(this.props.filterText)) {
@@ -74,6 +83,14 @@ class StudentTableFilter extends React.Component {
     this.state = {
       filterText: ''
     }
+
+    this.handleUserInput = this.handleUserInput.bind(this);
+  }
+
+  handleUserInput(filterText) {
+    this.setState({
+      filterText: filterText
+    });
   }
 
   render() {
@@ -87,7 +104,7 @@ class StudentTableFilter extends React.Component {
     return (
       <div>
         <FilterInput />
-        <Table students={students} filterText={this.state.filterText}/>
+        <Table students={students} onUserInput={this.handleUserInput} filterText={this.state.filterText}/>
       </div>
     );
   }
