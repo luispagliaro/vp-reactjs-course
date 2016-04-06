@@ -583,9 +583,13 @@ var FilterInput = function (_React$Component) {
       return React.createElement(
         "div",
         null,
-        React.createElement("label", { htmlFor: "filterInput" }),
-        React.createElement("input", { id: "filterInput", type: "text", ref: "filterTextInput" }),
-        React.createElement("input", { type: "submit", value: "Filtrar", placeholder: "Filtrar por Apellido", onClick: this.handleClick })
+        React.createElement(
+          "label",
+          { htmlFor: "filterInput" },
+          "Filtrar"
+        ),
+        React.createElement("input", { id: "filterInput", type: "text", placeholder: "Filtrar por Apellido", ref: "filterTextInput" }),
+        React.createElement("input", { type: "submit", value: "Filtrar", onClick: this.handleClick })
       );
     }
   }]);

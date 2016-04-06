@@ -14,9 +14,9 @@ class FilterInput extends React.Component {
   render() {
     return (
       <div>
-        <label htmlFor="filterInput"></label>
-        <input id="filterInput" type="text" ref="filterTextInput"/>
-        <input type="submit" value="Filtrar" placeholder="Filtrar por Apellido" onClick={this.handleClick}/>
+        <label htmlFor="filterInput">Filtrar</label>
+        <input id="filterInput" type="text" placeholder="Filtrar por Apellido" ref="filterTextInput"/>
+        <input type="submit" value="Filtrar" onClick={this.handleClick}/>
       </div>
     );
   }

@@ -48,7 +48,8 @@ body {
   margin-top: 10px;
 }
 
-#login form {
+#login form,
+#table {
   width: 400px;
   margin: 0 auto;
   text-align: left;
@@ -63,7 +64,7 @@ label {
   margin-bottom: 5px;
 }
 
-input:not(#checkboxInput),
+#login input:not(#checkboxInput),
 .error {
   display: block;
   box-sizing: border-box;
@@ -95,4 +96,30 @@ fieldset {
   padding: 5px 0 0 5px;
   border: 1px solid darkred;
   background: coral;
+}
+
+#filterInput {
+  width: 200px;
+  height: 25px;
+  margin-right: 20px;
+}
+
+#table input[type='submit'] {
+  width: 55px;
+  height: 30px;
+}
+
+table {
+  margin-top: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid lightgray;
+}
+
+th {
+  background: lightgrey;
+}
+
+tr:nth-child(even) {
+  background: darkgray;
 }
