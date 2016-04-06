@@ -390,16 +390,24 @@ var CheckBoxEl = function (_React$Component2) {
   function CheckBoxEl() {
     _classCallCheck(this, CheckBoxEl);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(CheckBoxEl).call(this));
+    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(CheckBoxEl).call(this));
+
+    _this2.handleClick = _this2.handleClick.bind(_this2);
+    return _this2;
   }
 
   _createClass(CheckBoxEl, [{
+    key: 'handleClick',
+    value: function handleClick(e) {
+      this.props.handleClick(e);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
         'div',
         null,
-        React.createElement('input', { id: this.props.inputId, type: this.props.inputType }),
+        React.createElement('input', { id: this.props.inputId, type: 'checkbox', onClick: this.handleClick }),
         React.createElement(
           'label',
           { htmlFor: this.props.inputId },
@@ -485,10 +493,32 @@ var LoginForm = function (_React$Component6) {
   function LoginForm() {
     _classCallCheck(this, LoginForm);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(LoginForm).call(this));
+    var _this6 = _possibleConstructorReturn(this, Object.getPrototypeOf(LoginForm).call(this));
+
+    _this6.state = {
+      passInputType: 'password'
+    };
+
+    _this6.showPassword = _this6.showPassword.bind(_this6);
+    return _this6;
   }
 
   _createClass(LoginForm, [{
+    key: 'showPassword',
+    value: function showPassword(e) {
+      var value = e.target.checked;
+
+      if (value) {
+        this.setState({
+          passInputType: 'text'
+        });
+      } else {
+        this.setState({
+          passInputType: 'password'
+        });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
@@ -503,8 +533,8 @@ var LoginForm = function (_React$Component6) {
             'Log in with your email account'
           ),
           React.createElement(InputFieldEl, { inputId: 'emailInput', inputType: 'email', inputLabel: 'E-mail', inputPlaceholder: 'somebody@example.com' }),
-          React.createElement(InputFieldEl, { inputId: 'passInput', inputType: 'password', inputLabel: 'Password', inputPlaceholder: 'Enter password' }),
-          React.createElement(CheckBoxEl, { inputId: 'checkboxInput', inputType: 'checkbox', inputLabel: 'Show password' }),
+          React.createElement(InputFieldEl, { inputId: 'passInput', inputType: this.state.passInputType, inputLabel: 'Password', inputPlaceholder: 'Enter password' }),
+          React.createElement(CheckBoxEl, { inputId: 'checkboxInput', inputLabel: 'Show password', handleClick: this.showPassword }),
           React.createElement(LogInCTA, null),
           React.createElement(ForgotPassCTA, null)
         )

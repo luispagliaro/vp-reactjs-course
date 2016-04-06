@@ -47,12 +47,18 @@ class InputFieldEl extends React.Component {
 class CheckBoxEl extends React.Component {
   constructor() {
     super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.props.handleClick(e);
   }
 
   render() {
     return (
       <div>
-        <input id={this.props.inputId} type={this.props.inputType} />
+        <input id={this.props.inputId} type='checkbox' onClick={this.handleClick}/>
         <label htmlFor={this.props.inputId}>{this.props.inputLabel}</label>
       </div>
     );
@@ -98,6 +104,26 @@ class ForgotPassCTA extends React.Component {
 class LoginForm extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      passInputType: 'password'
+    };
+
+    this.showPassword = this.showPassword.bind(this);
+  }
+
+    showPassword(e) {
+    let value = e.target.checked;
+
+    if (value) {
+      this.setState({
+        passInputType: 'text'
+      });
+    } else {
+      this.setState({
+        passInputType: 'password'
+      });
+    }
   }
 
   render() {
@@ -106,8 +132,8 @@ class LoginForm extends React.Component {
         <fieldset>
           <legend>Log in with your email account</legend>
           <InputFieldEl inputId={'emailInput'} inputType={'email'} inputLabel={'E-mail'} inputPlaceholder={'somebody@example.com'} />
-          <InputFieldEl inputId={'passInput'} inputType={'password'} inputLabel={'Password'} inputPlaceholder={'Enter password'} />
-          <CheckBoxEl inputId={'checkboxInput'} inputType={'checkbox'} inputLabel={'Show password'} />
+          <InputFieldEl inputId={'passInput'} inputType={this.state.passInputType} inputLabel={'Password'} inputPlaceholder={'Enter password'} />
+          <CheckBoxEl inputId={'checkboxInput'} inputLabel={'Show password'} handleClick={this.showPassword}/>
           <LogInCTA />
           <ForgotPassCTA />
         </fieldset>
