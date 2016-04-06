@@ -744,8 +744,8 @@ var StudentTableFilter = function (_React$Component4) {
       return React.createElement(
         "div",
         null,
-        React.createElement(FilterInput, null),
-        React.createElement(Table, { students: students, onUserInput: this.handleUserInput, filterText: this.state.filterText })
+        React.createElement(FilterInput, { onUserInput: this.handleUserInput }),
+        React.createElement(Table, { students: students, filterText: this.state.filterText })
       );
     }
   }]);

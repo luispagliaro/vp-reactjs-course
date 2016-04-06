@@ -103,8 +103,8 @@ class StudentTableFilter extends React.Component {
 
     return (
       <div>
-        <FilterInput />
-        <Table students={students} onUserInput={this.handleUserInput} filterText={this.state.filterText}/>
+        <FilterInput onUserInput={this.handleUserInput} />
+        <Table students={students} filterText={this.state.filterText}/>
       </div>
     );
   }
