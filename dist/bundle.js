@@ -312,4 +312,153 @@ var Ejercicio4 = function (_React$Component) {
 
 ReactDOM.render(React.createElement(Ejercicio4, null), document.getElementById('ejercicio4'));
 
-},{}]},{},[1,2,3,4]);
+},{}],5:[function(require,module,exports){
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var InputFieldEl = function (_React$Component) {
+  _inherits(InputFieldEl, _React$Component);
+
+  function InputFieldEl() {
+    _classCallCheck(this, InputFieldEl);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(InputFieldEl).call(this));
+  }
+
+  _createClass(InputFieldEl, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        React.createElement(
+          "label",
+          { htmlFor: this.props.inputId },
+          this.props.inputLabel
+        ),
+        React.createElement("input", { id: this.props.inputId, type: this.props.inputType, placeholder: this.props.inputPlaceholder })
+      );
+    }
+  }]);
+
+  return InputFieldEl;
+}(React.Component);
+
+var CheckBoxEl = function (_React$Component2) {
+  _inherits(CheckBoxEl, _React$Component2);
+
+  function CheckBoxEl() {
+    _classCallCheck(this, CheckBoxEl);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(CheckBoxEl).call(this));
+  }
+
+  _createClass(CheckBoxEl, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        React.createElement("input", { id: this.props.inputId, type: this.props.inputType }),
+        React.createElement(
+          "label",
+          { htmlFor: this.props.inputId },
+          this.props.inputLabel
+        )
+      );
+    }
+  }]);
+
+  return CheckBoxEl;
+}(React.Component);
+
+var LogInCTA = function (_React$Component3) {
+  _inherits(LogInCTA, _React$Component3);
+
+  function LogInCTA() {
+    _classCallCheck(this, LogInCTA);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(LogInCTA).call(this));
+  }
+
+  _createClass(LogInCTA, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("input", { type: "submit", value: "Log in" });
+    }
+  }]);
+
+  return LogInCTA;
+}(React.Component);
+
+var ForgotPassCTA = function (_React$Component4) {
+  _inherits(ForgotPassCTA, _React$Component4);
+
+  function ForgotPassCTA() {
+    _classCallCheck(this, ForgotPassCTA);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ForgotPassCTA).call(this));
+  }
+
+  _createClass(ForgotPassCTA, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "a",
+        { href: "#" },
+        "Forgot your password?"
+      );
+    }
+  }]);
+
+  return ForgotPassCTA;
+}(React.Component);
+
+var LoginForm = function (_React$Component5) {
+  _inherits(LoginForm, _React$Component5);
+
+  function LoginForm() {
+    _classCallCheck(this, LoginForm);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(LoginForm).call(this));
+  }
+
+  _createClass(LoginForm, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "form",
+        null,
+        React.createElement(
+          "fieldset",
+          null,
+          React.createElement(
+            "legend",
+            null,
+            "Log in with your email account"
+          ),
+          React.createElement(InputFieldEl, { inputId: 'emailInput', inputType: 'email', inputLabel: 'E-mail', inputPlaceholder: 'somebody@example.com' }),
+          React.createElement(InputFieldEl, { inputId: 'passInput', inputType: 'password', inputLabel: 'Password', inputPlaceholder: 'Enter password' }),
+          React.createElement(CheckBoxEl, { inputId: 'checkboxInput', inputType: 'checkbox', inputLabel: 'Show password' }),
+          React.createElement(LogInCTA, null),
+          React.createElement(ForgotPassCTA, null)
+        )
+      );
+    }
+  }]);
+
+  return LoginForm;
+}(React.Component);
+
+;
+
+ReactDOM.render(React.createElement(LoginForm, null), document.getElementById('login'));
+
+},{}]},{},[1,2,3,4,5]);
