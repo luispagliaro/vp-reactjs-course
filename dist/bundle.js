@@ -313,7 +313,7 @@ var Ejercicio4 = function (_React$Component) {
 ReactDOM.render(React.createElement(Ejercicio4, null), document.getElementById('ejercicio4'));
 
 },{}],5:[function(require,module,exports){
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -329,21 +329,54 @@ var InputFieldEl = function (_React$Component) {
   function InputFieldEl() {
     _classCallCheck(this, InputFieldEl);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(InputFieldEl).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(InputFieldEl).call(this));
+
+    _this.state = {
+      valid: ''
+    };
+
+    _this.checkEmail = _this.checkEmail.bind(_this);
+    return _this;
   }
 
   _createClass(InputFieldEl, [{
-    key: "render",
+    key: 'checkEmail',
+    value: function checkEmail(e) {
+      if (this.props.inputType === 'email') {
+        var value = e.target.value,
+            regex = /(\b^[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b)$/;
+
+        if (regex.test(value)) {
+          this.setState({
+            valid: true
+          });
+        } else {
+          this.setState({
+            valid: false
+          });
+        }
+      }
+    }
+  }, {
+    key: 'render',
     value: function render() {
+      var errorEl = '',
+          valid = this.state.valid;
+
+      if (valid !== '' && !valid) {
+        errorEl = React.createElement(InputError, { el: this.props.inputLabel });
+      }
+
       return React.createElement(
-        "div",
+        'div',
         null,
         React.createElement(
-          "label",
+          'label',
           { htmlFor: this.props.inputId },
           this.props.inputLabel
         ),
-        React.createElement("input", { id: this.props.inputId, type: this.props.inputType, placeholder: this.props.inputPlaceholder })
+        React.createElement('input', { id: this.props.inputId, type: this.props.inputType, placeholder: this.props.inputPlaceholder, onChange: this.checkEmail, required: true }),
+        errorEl
       );
     }
   }]);
@@ -361,14 +394,14 @@ var CheckBoxEl = function (_React$Component2) {
   }
 
   _createClass(CheckBoxEl, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
+        'div',
         null,
-        React.createElement("input", { id: this.props.inputId, type: this.props.inputType }),
+        React.createElement('input', { id: this.props.inputId, type: this.props.inputType }),
         React.createElement(
-          "label",
+          'label',
           { htmlFor: this.props.inputId },
           this.props.inputLabel
         )
@@ -379,8 +412,33 @@ var CheckBoxEl = function (_React$Component2) {
   return CheckBoxEl;
 }(React.Component);
 
-var LogInCTA = function (_React$Component3) {
-  _inherits(LogInCTA, _React$Component3);
+var InputError = function (_React$Component3) {
+  _inherits(InputError, _React$Component3);
+
+  function InputError() {
+    _classCallCheck(this, InputError);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(InputError).call(this));
+  }
+
+  _createClass(InputError, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        { className: 'error' },
+        'Error: the ',
+        this.props.el,
+        ' is not valid'
+      );
+    }
+  }]);
+
+  return InputError;
+}(React.Component);
+
+var LogInCTA = function (_React$Component4) {
+  _inherits(LogInCTA, _React$Component4);
 
   function LogInCTA() {
     _classCallCheck(this, LogInCTA);
@@ -389,17 +447,17 @@ var LogInCTA = function (_React$Component3) {
   }
 
   _createClass(LogInCTA, [{
-    key: "render",
+    key: 'render',
     value: function render() {
-      return React.createElement("input", { type: "submit", value: "Log in" });
+      return React.createElement('input', { type: 'submit', value: 'Log in' });
     }
   }]);
 
   return LogInCTA;
 }(React.Component);
 
-var ForgotPassCTA = function (_React$Component4) {
-  _inherits(ForgotPassCTA, _React$Component4);
+var ForgotPassCTA = function (_React$Component5) {
+  _inherits(ForgotPassCTA, _React$Component5);
 
   function ForgotPassCTA() {
     _classCallCheck(this, ForgotPassCTA);
@@ -408,12 +466,12 @@ var ForgotPassCTA = function (_React$Component4) {
   }
 
   _createClass(ForgotPassCTA, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "a",
-        { href: "#" },
-        "Forgot your password?"
+        'a',
+        { href: '#' },
+        'Forgot your password?'
       );
     }
   }]);
@@ -421,8 +479,8 @@ var ForgotPassCTA = function (_React$Component4) {
   return ForgotPassCTA;
 }(React.Component);
 
-var LoginForm = function (_React$Component5) {
-  _inherits(LoginForm, _React$Component5);
+var LoginForm = function (_React$Component6) {
+  _inherits(LoginForm, _React$Component6);
 
   function LoginForm() {
     _classCallCheck(this, LoginForm);
@@ -431,18 +489,18 @@ var LoginForm = function (_React$Component5) {
   }
 
   _createClass(LoginForm, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "form",
+        'form',
         null,
         React.createElement(
-          "fieldset",
+          'fieldset',
           null,
           React.createElement(
-            "legend",
+            'legend',
             null,
-            "Log in with your email account"
+            'Log in with your email account'
           ),
           React.createElement(InputFieldEl, { inputId: 'emailInput', inputType: 'email', inputLabel: 'E-mail', inputPlaceholder: 'somebody@example.com' }),
           React.createElement(InputFieldEl, { inputId: 'passInput', inputType: 'password', inputLabel: 'Password', inputPlaceholder: 'Enter password' }),
