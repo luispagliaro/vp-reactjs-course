@@ -549,4 +549,192 @@ var LoginForm = function (_React$Component6) {
 
 ReactDOM.render(React.createElement(LoginForm, null), document.getElementById('login'));
 
-},{}]},{},[1,2,3,4,5]);
+},{}],6:[function(require,module,exports){
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FilterInput = function (_React$Component) {
+  _inherits(FilterInput, _React$Component);
+
+  function FilterInput() {
+    _classCallCheck(this, FilterInput);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(FilterInput).call(this));
+  }
+
+  _createClass(FilterInput, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        React.createElement("label", { htmlFor: "filterInput" }),
+        React.createElement("input", { id: "filterInput", type: "text" }),
+        React.createElement("input", { type: "submit", value: "Filtrar", placeholder: "Filtrar por Apellido" })
+      );
+    }
+  }]);
+
+  return FilterInput;
+}(React.Component);
+
+var StudentRow = function (_React$Component2) {
+  _inherits(StudentRow, _React$Component2);
+
+  function StudentRow() {
+    _classCallCheck(this, StudentRow);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(StudentRow).call(this));
+  }
+
+  _createClass(StudentRow, [{
+    key: "render",
+    value: function render() {
+      var student = this.props.student;
+
+      return React.createElement(
+        "tr",
+        null,
+        React.createElement(
+          "td",
+          null,
+          "student.lastName"
+        ),
+        React.createElement(
+          "td",
+          null,
+          "student.name"
+        ),
+        React.createElement(
+          "td",
+          null,
+          "student.exams[0]"
+        ),
+        React.createElement(
+          "td",
+          null,
+          "student.exams[1]"
+        ),
+        React.createElement(
+          "td",
+          null,
+          "student.exams[2]"
+        )
+      );
+    }
+  }]);
+
+  return StudentRow;
+}(React.Component);
+
+var Table = function (_React$Component3) {
+  _inherits(Table, _React$Component3);
+
+  function Table() {
+    _classCallCheck(this, Table);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Table).call(this));
+  }
+
+  _createClass(Table, [{
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      var rows = [];
+
+      students.map(function (student) {
+        if (student.lastName.startsWith(_this4.props.filterText)) {
+          rows.push(React.createElement(StudentRow, { student: student, key: student.lastName }));
+        }
+      });
+
+      return React.createElement(
+        "table",
+        null,
+        React.createElement(
+          "thead",
+          null,
+          React.createElement(
+            "tr",
+            null,
+            React.createElement(
+              "th",
+              null,
+              "Apellido"
+            ),
+            React.createElement(
+              "th",
+              null,
+              "Nombre"
+            ),
+            React.createElement(
+              "th",
+              null,
+              "Parcial 1"
+            ),
+            React.createElement(
+              "th",
+              null,
+              "Parcial 2"
+            ),
+            React.createElement(
+              "th",
+              null,
+              "Parcial 3"
+            )
+          )
+        ),
+        React.createElement(
+          "tbody",
+          null,
+          rows
+        )
+      );
+    }
+  }]);
+
+  return Table;
+}(React.Component);
+
+var StudentTableFilter = function (_React$Component4) {
+  _inherits(StudentTableFilter, _React$Component4);
+
+  function StudentTableFilter() {
+    _classCallCheck(this, StudentTableFilter);
+
+    var _this5 = _possibleConstructorReturn(this, Object.getPrototypeOf(StudentTableFilter).call(this));
+
+    _this5.state = {
+      filterText: ''
+    };
+    return _this5;
+  }
+
+  _createClass(StudentTableFilter, [{
+    key: "render",
+    value: function render() {
+      var students = [{ lastName: 'Lopez', name: 'José', exams: [6.5, 7, 6.5] }, { lastName: 'Acosta', name: 'Hernán', exams: [5, 8, 8] }, { lastName: 'Masei', name: 'Ernesto', exams: [6.5, 9, 7.5] }, { lastName: 'Lisso', name: 'Magali', exams: [8, 7, 6.5] }];
+
+      return React.createElement(
+        "div",
+        null,
+        React.createElement(FilterInput, null),
+        React.createElement(Table, { students: students, filterText: this.state.filterText })
+      );
+    }
+  }]);
+
+  return StudentTableFilter;
+}(React.Component);
+
+ReactDOM.render(React.createElement(StudentTableFilter, null), document.getElementById('table'));
+
+},{}]},{},[1,2,3,4,5,6]);
