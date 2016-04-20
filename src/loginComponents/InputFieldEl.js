@@ -14,25 +14,24 @@ export default class InputFieldEl extends React.Component {
   }
 
   checkEmail(e) {
-    if (this.props.inputType === 'email') {
-      let value = e.target.value,
-        regex = /(\b^[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b)$/;
+    let value = e.target.value,
+      regex = /(\b^[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b)$/;
 
-      if (regex.test(value)) {
-        this.setState({
-          valid: true
-        });
-      } else {
-        this.setState({
-          valid: false
-        });
-      }
+    if (regex.test(value)) {
+      this.setState({
+        valid: true
+      });
+    } else {
+      this.setState({
+        valid: false
+      });
     }
   }
 
   render() {
     let errorEl = '',
-      valid = this.state.valid;
+      valid = this.state.valid,
+      checkMail = '';
 
     if (valid !== '' && !valid) {
       errorEl = <InputError el={this.props.inputLabel} />;
@@ -41,7 +40,7 @@ export default class InputFieldEl extends React.Component {
     return (
       <div>
         <label htmlFor={this.props.inputId}>{this.props.inputLabel}</label>
-        <input id={this.props.inputId} type={this.props.inputType} placeholder={this.props.inputPlaceholder} onChange={this.checkEmail} required/>
+        <input id={this.props.inputId} type={this.props.inputType} placeholder={this.props.inputPlaceholder} onChange={this.props.inputType === 'email' ? this.checkEmail : null} required/>
         {errorEl}
       </div>
     );

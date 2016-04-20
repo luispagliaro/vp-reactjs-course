@@ -19580,26 +19580,25 @@ var InputFieldEl = function (_React$Component) {
   _createClass(InputFieldEl, [{
     key: 'checkEmail',
     value: function checkEmail(e) {
-      if (this.props.inputType === 'email') {
-        var value = e.target.value,
-            regex = /(\b^[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b)$/;
+      var value = e.target.value,
+          regex = /(\b^[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b)$/;
 
-        if (regex.test(value)) {
-          this.setState({
-            valid: true
-          });
-        } else {
-          this.setState({
-            valid: false
-          });
-        }
+      if (regex.test(value)) {
+        this.setState({
+          valid: true
+        });
+      } else {
+        this.setState({
+          valid: false
+        });
       }
     }
   }, {
     key: 'render',
     value: function render() {
       var errorEl = '',
-          valid = this.state.valid;
+          valid = this.state.valid,
+          checkMail = '';
 
       if (valid !== '' && !valid) {
         errorEl = _react2.default.createElement(_InputError2.default, { el: this.props.inputLabel });
@@ -19613,7 +19612,7 @@ var InputFieldEl = function (_React$Component) {
           { htmlFor: this.props.inputId },
           this.props.inputLabel
         ),
-        _react2.default.createElement('input', { id: this.props.inputId, type: this.props.inputType, placeholder: this.props.inputPlaceholder, onChange: this.checkEmail, required: true }),
+        _react2.default.createElement('input', { id: this.props.inputId, type: this.props.inputType, placeholder: this.props.inputPlaceholder, onChange: this.props.inputType === 'email' ? this.checkEmail : null, required: true }),
         errorEl
       );
     }
