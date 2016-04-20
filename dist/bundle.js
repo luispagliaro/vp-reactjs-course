@@ -19351,7 +19351,209 @@ ReactDOM.render(React.createElement(Ejercicio4, null), document.getElementById('
 },{}],163:[function(require,module,exports){
 'use strict';
 
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _LoginForm = require('./loginComponents/LoginForm');
+
+var _LoginForm2 = _interopRequireDefault(_LoginForm);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom2.default.render(_react2.default.createElement(_LoginForm2.default, null), document.getElementById('login'));
+
+},{"./loginComponents/LoginForm":169,"react":158,"react-dom":2}],164:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CheckBoxEl = function (_React$Component) {
+  _inherits(CheckBoxEl, _React$Component);
+
+  function CheckBoxEl() {
+    _classCallCheck(this, CheckBoxEl);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CheckBoxEl).call(this));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(CheckBoxEl, [{
+    key: 'handleClick',
+    value: function handleClick(e) {
+      this.props.handleClick(e);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement('input', { id: this.props.inputId, type: 'checkbox', onClick: this.handleClick }),
+        _react2.default.createElement(
+          'label',
+          { htmlFor: this.props.inputId },
+          this.props.inputLabel
+        )
+      );
+    }
+  }]);
+
+  return CheckBoxEl;
+}(_react2.default.Component);
+
+exports.default = CheckBoxEl;
+
+},{"react":158,"react-dom":2}],165:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ForgotPassCTA = function (_React$Component) {
+  _inherits(ForgotPassCTA, _React$Component);
+
+  function ForgotPassCTA() {
+    _classCallCheck(this, ForgotPassCTA);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ForgotPassCTA).call(this));
+  }
+
+  _createClass(ForgotPassCTA, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'a',
+        { href: '#' },
+        'Forgot your password?'
+      );
+    }
+  }]);
+
+  return ForgotPassCTA;
+}(_react2.default.Component);
+
+exports.default = ForgotPassCTA;
+
+},{"react":158,"react-dom":2}],166:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var InputError = function (_React$Component) {
+  _inherits(InputError, _React$Component);
+
+  function InputError() {
+    _classCallCheck(this, InputError);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(InputError).call(this));
+  }
+
+  _createClass(InputError, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'error' },
+        'Error: the ',
+        this.props.el,
+        ' is not valid'
+      );
+    }
+  }]);
+
+  return InputError;
+}(_react2.default.Component);
+
+exports.default = InputError;
+
+},{"react":158,"react-dom":2}],167:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _InputError = require('./InputError');
+
+var _InputError2 = _interopRequireDefault(_InputError);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -19400,89 +19602,55 @@ var InputFieldEl = function (_React$Component) {
           valid = this.state.valid;
 
       if (valid !== '' && !valid) {
-        errorEl = React.createElement(InputError, { el: this.props.inputLabel });
+        errorEl = _react2.default.createElement(_InputError2.default, { el: this.props.inputLabel });
       }
 
-      return React.createElement(
+      return _react2.default.createElement(
         'div',
         null,
-        React.createElement(
+        _react2.default.createElement(
           'label',
           { htmlFor: this.props.inputId },
           this.props.inputLabel
         ),
-        React.createElement('input', { id: this.props.inputId, type: this.props.inputType, placeholder: this.props.inputPlaceholder, onChange: this.checkEmail, required: true }),
+        _react2.default.createElement('input', { id: this.props.inputId, type: this.props.inputType, placeholder: this.props.inputPlaceholder, onChange: this.checkEmail, required: true }),
         errorEl
       );
     }
   }]);
 
   return InputFieldEl;
-}(React.Component);
+}(_react2.default.Component);
 
-var CheckBoxEl = function (_React$Component2) {
-  _inherits(CheckBoxEl, _React$Component2);
+exports.default = InputFieldEl;
 
-  function CheckBoxEl() {
-    _classCallCheck(this, CheckBoxEl);
+},{"./InputError":166,"react":158,"react-dom":2}],168:[function(require,module,exports){
+'use strict';
 
-    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(CheckBoxEl).call(this));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-    _this2.handleClick = _this2.handleClick.bind(_this2);
-    return _this2;
-  }
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-  _createClass(CheckBoxEl, [{
-    key: 'handleClick',
-    value: function handleClick(e) {
-      this.props.handleClick(e);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return React.createElement(
-        'div',
-        null,
-        React.createElement('input', { id: this.props.inputId, type: 'checkbox', onClick: this.handleClick }),
-        React.createElement(
-          'label',
-          { htmlFor: this.props.inputId },
-          this.props.inputLabel
-        )
-      );
-    }
-  }]);
+var _react = require('react');
 
-  return CheckBoxEl;
-}(React.Component);
+var _react2 = _interopRequireDefault(_react);
 
-var InputError = function (_React$Component3) {
-  _inherits(InputError, _React$Component3);
+var _reactDom = require('react-dom');
 
-  function InputError() {
-    _classCallCheck(this, InputError);
+var _reactDom2 = _interopRequireDefault(_reactDom);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(InputError).call(this));
-  }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  _createClass(InputError, [{
-    key: 'render',
-    value: function render() {
-      return React.createElement(
-        'div',
-        { className: 'error' },
-        'Error: the ',
-        this.props.el,
-        ' is not valid'
-      );
-    }
-  }]);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  return InputError;
-}(React.Component);
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-var LogInCTA = function (_React$Component4) {
-  _inherits(LogInCTA, _React$Component4);
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LogInCTA = function (_React$Component) {
+  _inherits(LogInCTA, _React$Component);
 
   function LogInCTA() {
     _classCallCheck(this, LogInCTA);
@@ -19493,50 +19661,70 @@ var LogInCTA = function (_React$Component4) {
   _createClass(LogInCTA, [{
     key: 'render',
     value: function render() {
-      return React.createElement('input', { type: 'submit', value: 'Log in' });
+      return _react2.default.createElement('input', { type: 'submit', value: 'Log in' });
     }
   }]);
 
   return LogInCTA;
-}(React.Component);
+}(_react2.default.Component);
 
-var ForgotPassCTA = function (_React$Component5) {
-  _inherits(ForgotPassCTA, _React$Component5);
+exports.default = LogInCTA;
 
-  function ForgotPassCTA() {
-    _classCallCheck(this, ForgotPassCTA);
+},{"react":158,"react-dom":2}],169:[function(require,module,exports){
+'use strict';
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ForgotPassCTA).call(this));
-  }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-  _createClass(ForgotPassCTA, [{
-    key: 'render',
-    value: function render() {
-      return React.createElement(
-        'a',
-        { href: '#' },
-        'Forgot your password?'
-      );
-    }
-  }]);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-  return ForgotPassCTA;
-}(React.Component);
+var _react = require('react');
 
-var LoginForm = function (_React$Component6) {
-  _inherits(LoginForm, _React$Component6);
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _InputFieldEl = require('./InputFieldEl');
+
+var _InputFieldEl2 = _interopRequireDefault(_InputFieldEl);
+
+var _CheckBoxEl = require('./CheckBoxEl');
+
+var _CheckBoxEl2 = _interopRequireDefault(_CheckBoxEl);
+
+var _LogInCTA = require('./LogInCTA');
+
+var _LogInCTA2 = _interopRequireDefault(_LogInCTA);
+
+var _ForgotPassCTA = require('./ForgotPassCTA');
+
+var _ForgotPassCTA2 = _interopRequireDefault(_ForgotPassCTA);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LoginForm = function (_React$Component) {
+  _inherits(LoginForm, _React$Component);
 
   function LoginForm() {
     _classCallCheck(this, LoginForm);
 
-    var _this6 = _possibleConstructorReturn(this, Object.getPrototypeOf(LoginForm).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LoginForm).call(this));
 
-    _this6.state = {
+    _this.state = {
       passInputType: 'password'
     };
 
-    _this6.showPassword = _this6.showPassword.bind(_this6);
-    return _this6;
+    _this.showPassword = _this.showPassword.bind(_this);
+    return _this;
   }
 
   _createClass(LoginForm, [{
@@ -19557,35 +19745,34 @@ var LoginForm = function (_React$Component6) {
   }, {
     key: 'render',
     value: function render() {
-      return React.createElement(
+      return _react2.default.createElement(
         'form',
         null,
-        React.createElement(
+        _react2.default.createElement(
           'fieldset',
           null,
-          React.createElement(
+          _react2.default.createElement(
             'legend',
             null,
             'Log in with your email account'
           ),
-          React.createElement(InputFieldEl, { inputId: 'emailInput', inputType: 'email', inputLabel: 'E-mail', inputPlaceholder: 'somebody@example.com' }),
-          React.createElement(InputFieldEl, { inputId: 'passInput', inputType: this.state.passInputType, inputLabel: 'Password', inputPlaceholder: 'Enter password' }),
-          React.createElement(CheckBoxEl, { inputId: 'checkboxInput', inputLabel: 'Show password', handleClick: this.showPassword }),
-          React.createElement(LogInCTA, null),
-          React.createElement(ForgotPassCTA, null)
+          _react2.default.createElement(_InputFieldEl2.default, { inputId: 'emailInput', inputType: 'email', inputLabel: 'E-mail', inputPlaceholder: 'somebody@example.com' }),
+          _react2.default.createElement(_InputFieldEl2.default, { inputId: 'passInput', inputType: this.state.passInputType, inputLabel: 'Password', inputPlaceholder: 'Enter password' }),
+          _react2.default.createElement(_CheckBoxEl2.default, { inputId: 'checkboxInput', inputLabel: 'Show password', handleClick: this.showPassword }),
+          _react2.default.createElement(_LogInCTA2.default, null),
+          _react2.default.createElement(_ForgotPassCTA2.default, null)
         )
       );
     }
   }]);
 
   return LoginForm;
-}(React.Component);
+}(_react2.default.Component);
 
+exports.default = LoginForm;
 ;
 
-ReactDOM.render(React.createElement(LoginForm, null), document.getElementById('login'));
-
-},{}],164:[function(require,module,exports){
+},{"./CheckBoxEl":164,"./ForgotPassCTA":165,"./InputFieldEl":167,"./LogInCTA":168,"react":158,"react-dom":2}],170:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -19622,7 +19809,7 @@ var students = [{
 
 _reactDom2.default.render(_react2.default.createElement(_StudentTableFilter2.default, { data: students }), document.getElementById('table'));
 
-},{"./tableComponents/StudentTableFilter":167,"react":158,"react-dom":2}],165:[function(require,module,exports){
+},{"./tableComponents/StudentTableFilter":173,"react":158,"react-dom":2}],171:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19686,7 +19873,7 @@ var FilterInput = function (_React$Component) {
 
 exports.default = FilterInput;
 
-},{"react":158,"react-dom":2}],166:[function(require,module,exports){
+},{"react":158,"react-dom":2}],172:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19762,7 +19949,7 @@ var StudentRow = function (_React$Component) {
 
 exports.default = StudentRow;
 
-},{"react":158,"react-dom":2}],167:[function(require,module,exports){
+},{"react":158,"react-dom":2}],173:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19834,7 +20021,7 @@ var StudentTableFilter = function (_React$Component) {
 
 exports.default = StudentTableFilter;
 
-},{"./FilterInput":165,"./Table":168,"react":158,"react-dom":2}],168:[function(require,module,exports){
+},{"./FilterInput":171,"./Table":174,"react":158,"react-dom":2}],174:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -19936,4 +20123,4 @@ var Table = function (_React$Component) {
 
 exports.default = Table;
 
-},{"./StudentRow":166,"react":158,"react-dom":2}]},{},[159,160,161,162,163,164]);
+},{"./StudentRow":172,"react":158,"react-dom":2}]},{},[159,160,161,162,163,170]);
