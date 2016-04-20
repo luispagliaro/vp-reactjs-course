@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf ./dist/*",
-    "build": "watchify -t [ babelify --presets [react es2015] ] ./src/*.jsx -o ./dist/bundle.js",
-    "start": "npm run clean && npm run build & http-server -p 3000"
+    "start": "gulp dev-server"
   },
   "repository": {
     "type": "git",
@@ -26,16 +24,13 @@
     "browserify": "^13.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "gulp-concat": "^2.6.0",
     "gulp-connect": "^3.2.2",
     "gulp-livereload": "^3.8.1",
     "gulp-load-plugins": "^1.2.2",
-    "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-util": "^3.0.7",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-tools": "^0.13.3",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
   }
 }
