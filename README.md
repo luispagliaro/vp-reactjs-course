@@ -1,5 +1,5 @@
 # Velocity Partners ReactJS Course
 
-### Build and run server on port 3000:
+### Build and run server:
 
 <pre><code>$ npm start</code></pre>
