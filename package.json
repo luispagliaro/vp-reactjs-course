@@ -24,9 +24,18 @@
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^3.2.2",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.2.2",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-util": "^3.0.7",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-tools": "^0.13.3",
+    "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
   }
 }

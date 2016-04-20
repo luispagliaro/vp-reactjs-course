@@ -1,37 +1,7 @@
-class Button extends React.Component {
-  constructor() {
-    super();
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.props.handleClick(this.props.tag);
-  }
-
-  render() {
-    return (
-      <button onClick={this.handleClick}>Create a &lt;{this.props.tag}&gt; tag</button>
-    );
-  }
-}
-
-class Tag extends React.Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    let tag = this.props.tag,
-      el = React.createElement(tag, {className:"tag"}, 'Hello, World!');
-    return (
-      <div>
-        {el}
-        <p className="info">&lt;{tag}&gt; tag created</p>
-      </div>
-    );
-  }
-}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Button from './Ej2/Button';
+import Tag from './Ej2/Tag';
 
 class Ejercicio2 extends React.Component {
   constructor() {
