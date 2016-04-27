@@ -29,13 +29,8 @@ describe('InputFieldEl', () => {
     expect(TestUtils.isElementOfType(inputFieldEl, InputFieldEl)).toBe(true);
   });
 
-  it('testDocument expected to be a DOM Element', () => {
+  it('renderedComponent expected to be a DOM Element', () => {
     console.log();
     expect(TestUtils.isDOMComponent(renderedComponent)).toBe(true);
   });
-
-  // it('component has got text-center class', () => {
-  //   expect(TestUtils.findRenderedDOMComponentWithClass(loginCTA,'text-center')).not.toEqual(false);
-  // });
-
 });
