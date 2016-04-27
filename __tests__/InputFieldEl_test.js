@@ -10,27 +10,28 @@ import InputFieldEl from '../src/loginComponents/InputFieldEl';
 
 describe('InputFieldEl', () => {
 
-  let inputFieldEl;
-  let testDocument;
+  let inputFieldEl,
+    renderedDocTree,
+    renderedComponent;
 
   beforeEach(function() {
     // Render a LoginCTA with a copy in the document
     inputFieldEl = <InputFieldEl inputId={'emailInput'} inputType={'email'} inputLabel={'E-mail'} inputPlaceholder={'somebody@example.com'} />;
-    testDocument = TestUtils.renderIntoDocument(
-        inputFieldEl
-    );
+    renderedDocTree = TestUtils.renderIntoDocument(inputFieldEl);
+    renderedComponent = TestUtils.findRenderedDOMComponentWithTag(renderedDocTree, 'input');
   });
 
   it('inputFieldEl expected to be a react element', () => {
-    expect(TestUtils.isElement(inputFieldEl)).toEqual(true);
+    expect(TestUtils.isElement(inputFieldEl)).toBe(true);
   });
 
   it('inputFieldEl expected to be of type "InputFieldEl"', () => {
-    expect(TestUtils.isElementOfType(inputFieldEl, InputFieldEl)).toEqual(true);
+    expect(TestUtils.isElementOfType(inputFieldEl, InputFieldEl)).toBe(true);
   });
 
   it('testDocument expected to be a DOM Element', () => {
-    expect(TestUtils.isDOMComponent(testDocument)).not.toEqual(true);
+    console.log();
+    expect(TestUtils.isDOMComponent(renderedComponent)).toBe(true);
   });
 
   // it('component has got text-center class', () => {
