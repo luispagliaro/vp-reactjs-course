@@ -35,5 +35,12 @@
     "react-dom": "^15.0.1",
     "react-tools": "^0.13.3",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils"
+    ]
   }
 }
