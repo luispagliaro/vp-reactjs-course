@@ -30,7 +30,24 @@ describe('InputFieldEl', () => {
   });
 
   it('renderedComponent expected to be a DOM Element', () => {
-    console.log();
     expect(TestUtils.isDOMComponent(renderedComponent)).toBe(true);
+  });
+
+  it('validates the input when an email is not entered', () => {
+    let input = ReactDOM.findDOMNode(renderedComponent);
+    input.value = 'a';
+
+    TestUtils.Simulate.change(input);
+
+    expect(renderedDocTree.state.valid).toBe(false);
+  });
+
+  it('validates the input when an email is entered', () => {
+    let input = ReactDOM.findDOMNode(renderedComponent);
+    input.value = 'luispagliaro@gmail.com';
+
+    TestUtils.Simulate.change(input);
+
+    expect(renderedDocTree.state.valid).toBe(true);
   });
 });
