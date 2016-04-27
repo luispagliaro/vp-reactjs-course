@@ -21,15 +21,15 @@ describe('InputFieldEl', () => {
     );
   });
 
-  it('inputFieldEl expect to be a react element', () => {
+  it('inputFieldEl expected to be a react element', () => {
     expect(TestUtils.isElement(inputFieldEl)).toEqual(true);
   });
 
-  it('inputFieldEl expect to be of type "InputFieldEl"', () => {
+  it('inputFieldEl expected to be of type "InputFieldEl"', () => {
     expect(TestUtils.isElementOfType(inputFieldEl, InputFieldEl)).toEqual(true);
   });
 
-  it('testDocument expect to be a DOM Element', () => {
+  it('testDocument expected to be a DOM Element', () => {
     expect(TestUtils.isDOMComponent(testDocument)).not.toEqual(true);
   });
 
