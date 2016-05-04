@@ -10,7 +10,7 @@ export default class LogInCTA extends React.Component {
   render() {
   	let handler = event => { return this.onClick(); };
     return (
-      <input type="submit" onClick={handler} value="Log in" />
+      <input type="submit" value="Log in" />
     );
   }
 }

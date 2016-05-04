@@ -1,10 +1,10 @@
 [
 	{
-		"username": "pepe",
-		"password": "admin"	
+		"email": "luispagliaro@gmail.com",
+		"password": "admin"
 	},
 	{
-		"username": "juan",
+		"email": "juan@asda.com",
 		"password": "admin"
 	}
 ]

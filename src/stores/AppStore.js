@@ -12,16 +12,14 @@ class AppStore extends Store {
 
         this.initialize('pages', [
           { name: 'login', title: 'Login', nav: true, auth: false, default: true },
-          { name: 'tabla', title: 'Tabla', nav: true, auth: false },
-          { name: 'ej1', title: 'EJ1', nav: true, auth: false },
-          { name: 'ej2', title: 'EJ2', nav: true, auth: false },
-          { name: 'ej3', title: 'EJ3', nav: true, auth: false },
-          { name: 'ej4', title: 'EJ4', nav: true, auth: false }
+          { name: 'tabla', title: 'Tabla', nav: true, auth: true },
+          { name: 'ej1', title: 'EJ1', nav: true, auth: true },
+          { name: 'ej2', title: 'EJ2', nav: true, auth: true },
+          { name: 'ej3', title: 'EJ3', nav: true, auth: true },
+          { name: 'ej4', title: 'EJ4', nav: true, auth: true }
         ]);
         this.initialize('route', this.getNavigationRoute(window.location.hash.substr(1)));
         this.initialize('userLogIn', false);
-        // this.initialize('images', []);
-        // this.initialize('lastFlickrRequest', 0);
     }
 
     onAction(actionType, data) {
@@ -30,41 +28,41 @@ class AppStore extends Store {
 
             case 'NAVIGATE':
                 let newRoute = this.getNavigationRoute(data.location);
+
                 if (newRoute !== this.get('route')) {
                     this.set('route', newRoute);
                     window.location.hash = `#${newRoute}`;
                 }
-                break;
 
+                break;
             case 'REQUEST-LOGIN-DATA':
-                // let lastRequest = this.get('lastFlickrRequest');
-                // let currentTime = Date.now;
-                // let fiveMinutes = 5 * 60 * 1000;
-                // if ((currentTime - lastRequest) > fiveMinutes) {
-                //     return;
-                // }
-                // $.ajax({
-                //     url: '/json/users.json',
-                //     dataType: 'json'
-                // }).done(response => {
-                //     Actions.processLoginData(response);
-                // });
-                alert('Bienvenido a la clase de React');
-                break;
+                let formData = data;
 
+                $.getJSON('/src/json/users.json')
+                  .done((data) => {
+                    Actions.processLoginData(formData, data);
+                    });
+
+                break;
             case 'PROCESS-LOGIN-DATA':
-                let valid = false;
-                for(let i = 0, length = data.length; i < length; i++ ){
-                    if(data[i].password == 'admin'){
-                        valid = true;
-                        continue;
+                let email = data.formData.email,
+                    password = data.formData.password;
+
+                for (let i = 0, length = data.jsonData.length; i < length; i++ ) {
+                    if (data.jsonData[i].email === email) {
+                        if (data.jsonData[i].password === password) {
+                            this.set('userLogIn', true);
+                            break;
+                        } else {
+                            alert('Usuario y/o contraseña incorrecta.');
+                        }
                     }
                 }
-                this.set('userLogIn', valid);
-                break;
 
+                break;
             default:
                 this.logger.debug('Unknown actionType for this store - ignoring');
+
                 break;
         }
     }

@@ -4,6 +4,7 @@ import InputFieldEl from './InputFieldEl';
 import CheckBoxEl from './CheckBoxEl';
 import LogInCTA from './LogInCTA';
 import ForgotPassCTA from './ForgotPassCTA';
+import Actions from '../actions';
 
 export default class LoginForm extends React.Component {
   constructor() {
@@ -11,17 +12,13 @@ export default class LoginForm extends React.Component {
 
     this.state = {
       passInputType: 'password',
-      userData: {
-        username: '',
-        password: ''
-      }   
     };
 
     this.showPassword = this.showPassword.bind(this);
-    this.logIn = this.logIn.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-    showPassword(e) {
+  showPassword(e) {
     let value = e.target.checked;
 
     if (value) {
@@ -35,22 +32,26 @@ export default class LoginForm extends React.Component {
     }
   }
 
-  logIn(){
-    Actions.requestLoginData({'username': this.state.username, 'password': this.state.password});
+  handleSubmit(e) {
+    e.preventDefault();
+
+    let formElements = this.refs.form.elements,
+      email = formElements.emailInput.value,
+      password = formElements.passInput.value;
+
+    Actions.requestLoginData({email, password});
   }
 
   render() {
-    let userData = {"username": this.state.username, "password": this.state.password};
-
     return (
-      <form>
+      <form onSubmit={this.handleSubmit} ref="form">
         <fieldset>
           <legend>Log in with your email account</legend>
-          <InputFieldEl inputId={'emailInput'} inputType={'email'} inputLabel={'E-mail'} inputPlaceholder={'somebody@example.com'} userData={userData}/>
-          <InputFieldEl inputId={'passInput'} inputType={this.state.passInputType} inputLabel={'Password'} inputPlaceholder={'Enter password'} userData={userData}/>
+          <InputFieldEl inputId={'emailInput'} inputType={'email'} inputLabel={'E-mail'} inputPlaceholder={'somebody@example.com'}/>
+          <InputFieldEl inputId={'passInput'} inputType={this.state.passInputType} inputLabel={'Password'} inputPlaceholder={'Enter password'}/>
           <CheckBoxEl inputId={'checkboxInput'} inputLabel={'Show password'} handleClick={this.showPassword}/>
-          <LogInCTA handleSubmit={this.logIn}/>
-          <ForgotPassCTA />
+          <LogInCTA/>
+          <ForgotPassCTA/>
         </fieldset>
       </form>
     );

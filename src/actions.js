@@ -5,11 +5,11 @@ export default class Actions {
         dispatcher.dispatch('NAVIGATE', { location: newRoute });
     }
 
-    static requestLoginData(tag) {
-        dispatcher.dispatch('REQUEST-LOGIN-DATA', { tag: tag });
+    static requestLoginData(user) {
+        dispatcher.dispatch('REQUEST-LOGIN-DATA', user);
     }
 
-    static processLoginData(data) {
-        dispatcher.dispatch('PROCESS-LOGIN-DATA', data);
+    static processLoginData(formData, jsonData) {
+        dispatcher.dispatch('PROCESS-LOGIN-DATA', {formData, jsonData});
     }
 }
