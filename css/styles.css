@@ -48,8 +48,8 @@ body {
   margin-top: 10px;
 }
 
-#login form,
-#table {
+#root form,
+#root {
   width: 400px;
   margin: 0 auto;
   text-align: left;
@@ -64,7 +64,7 @@ label {
   margin-bottom: 5px;
 }
 
-#login input:not(#checkboxInput),
+#root input:not(#checkboxInput),
 .error {
   display: block;
   box-sizing: border-box;
@@ -104,7 +104,7 @@ fieldset {
   margin-right: 20px;
 }
 
-#table input[type='submit'] {
+#root input[type='submit'] {
   width: 55px;
   height: 30px;
 }

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Button from './Ej2/Button';
 import Tag from './Ej2/Tag';
 
-class Ejercicio2 extends React.Component {
+export default class Ejercicio2 extends React.Component {
   constructor() {
     super();
 
@@ -41,7 +41,3 @@ class Ejercicio2 extends React.Component {
     );
   }
 };
-
-ReactDOM.render(<Ejercicio2/>,
-  document.getElementById('ejercicio2')
-);

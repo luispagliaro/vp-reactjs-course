@@ -27,7 +27,3 @@ export default class Ejercicio1 extends React.Component {
     );
   }
 };
-
-ReactDOM.render(<Ejercicio1/>,
-  document.getElementById('ejercicio1')
-);

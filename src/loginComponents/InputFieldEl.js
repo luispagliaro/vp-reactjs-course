@@ -28,6 +28,8 @@ export default class InputFieldEl extends React.Component {
     }
   }
 
+  setUserData
+
   render() {
     let errorEl = '',
       valid = this.state.valid,

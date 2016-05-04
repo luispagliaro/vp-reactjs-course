@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Actions from '../actions';
 
 export default class LogInCTA extends React.Component {
   constructor() {
@@ -7,8 +8,9 @@ export default class LogInCTA extends React.Component {
   }
 
   render() {
+  	let handler = event => { return this.onClick(); };
     return (
-      <input type="submit" value="Log in" />
+      <input type="submit" onClick={handler} value="Log in" />
     );
   }
 }

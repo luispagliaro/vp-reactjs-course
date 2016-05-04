@@ -40,7 +40,9 @@ gulp.task('reload', ['build'], function() {
 
 gulp.task('build', function() {
   return browserify({
-      entries: ['./src/ej1.js', './src/ej2.js', './src/ej3.js', './src/ej4.js', './src/login.js', './src/tabla.js']
+      /*entries: ['./src/ej1.js', './src/ej2.js', './src/ej3.js', './src/ej4.js', './src/login.js', './src/tabla.js']*/
+
+      entries: ['./src/app.js']
     })
     .transform('babelify', {
       presets: ['es2015', 'react']

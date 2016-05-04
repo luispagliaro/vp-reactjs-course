@@ -1,4 +1,7 @@
-class Ejercicio4 extends React.Component {
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+export default class Ejercicio4 extends React.Component {
   constructor() {
     super();
 
@@ -15,7 +18,3 @@ class Ejercicio4 extends React.Component {
     );
   }
 };
-
-ReactDOM.render(<Ejercicio4/>,
-  document.getElementById('ejercicio4')
-);
