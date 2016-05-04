@@ -19,7 +19,7 @@ class AppStore extends Store {
           { name: 'ej4', title: 'EJ4', nav: true, auth: true }
         ]);
         this.initialize('route', this.getNavigationRoute(window.location.hash.substr(1)));
-        this.initialize('userLogIn', false);
+        this.initialize('authenticated', false);
     }
 
     onAction(actionType, data) {
@@ -51,7 +51,8 @@ class AppStore extends Store {
                 for (let i = 0, length = data.jsonData.length; i < length; i++ ) {
                     if (data.jsonData[i].email === email) {
                         if (data.jsonData[i].password === password) {
-                            this.set('userLogIn', true);
+                            this.set('authenticated', true);
+                            this.changeStore();
                             break;
                         } else {
                             alert('Usuario y/o contraseña incorrecta.');

@@ -32,7 +32,8 @@ class AppView extends React.Component {
 
         this.state = {
             pages: [],
-            route: 'login'
+            route: 'login',
+            authenticated: false
         };
     }
 
@@ -46,9 +47,12 @@ class AppView extends React.Component {
     }
 
     updateState() {
+        let auth = appStore.get('authenticated');
+
         this.setState({
             route: appStore.get('route'),
-            pages: appStore.get('pages')
+            pages: appStore.get('pages'),
+            authenticated: auth
         });
     }
 
@@ -66,7 +70,7 @@ class AppView extends React.Component {
 
         return (
             <div id="pagehost">
-                <NavBar pages={this.state.pages} route={this.state.route}/>
+                <NavBar pages={this.state.pages} route={this.state.route} authenticated={this.state.authenticated}/>
                 {Route}
             </div>
         );

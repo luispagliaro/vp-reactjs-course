@@ -10,10 +10,7 @@ class NavBar extends React.Component {
                     <NavBrand/>
                 </div>
                 <div className="_navbar _navbar_grow">
-                    <NavLinks pages={this.props.pages} route={this.props.route}/>
-                </div>
-                <div className="_navbar">
-
+                    <NavLinks pages={this.props.pages} route={this.props.route} authenticated={this.props.authenticated}/>
                 </div>
             </header>
         );
