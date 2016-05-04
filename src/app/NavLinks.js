@@ -9,7 +9,11 @@ class NavLinks extends React.Component {
     render() {
         let visibleLinks = this.props.pages.filter(page => {
             if (this.props.authenticated === true) {
-                return (page.nav === true);
+                if (page.name === 'login') {
+                    return (page.nav === false);
+                } else {
+                    return (page.nav === true);
+                }
             } else {
                 return (page.nav === true && page.auth === false);
             }
